@@ -243,7 +243,7 @@ if page == pages[1]:
                 "de température, considérant ces données comme les plus pertinentes pour une analyse sur "
                 "4 ans et expliquant les choix des Parisiennes et Parisiens de faire appel au vélo comme moyen de transport.  \n")
 
-     st.markdown("17 valeurs sont manquantes. Il s'agit de 17 jours en 2023 durant lesquels aucune donnée n'est remontée."
+    st.markdown("17 valeurs sont manquantes. Il s'agit de 17 jours en 2023 durant lesquels aucune donnée n'est remontée."
                  "Cette situation est signalée par la Mairie de Paris. Nous faisons le choix de remplacer ces données"
                  "par la mediane des mesures à J+7 et J-7.")
     
