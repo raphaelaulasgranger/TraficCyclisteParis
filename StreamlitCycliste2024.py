@@ -16,17 +16,17 @@ import folium
 import plotly.graph_objects as go
 from streamlit.components.v1 import html
 import plotly.express as px
-from PIL import Image
+# from PIL import Image
 from streamlit_folium import folium_static
 from statsmodels.tsa.statespace.sarimax import SARIMAXResults
 
 import statsmodels.api as sm
 # import matplotlib.pyplot as plt
-import pmdarima as pm
+# import pmdarima as pm
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from statsmodels.stats.diagnostic import acorr_ljungbox
-from statsmodels.tsa.seasonal import seasonal_decompose
-from statsmodels.tsa.seasonal import STL
+# from statsmodels.tsa.seasonal import seasonal_decompose
+# from statsmodels.tsa.seasonal import STL
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 
