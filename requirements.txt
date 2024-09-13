@@ -1,5 +1,3 @@
-streamlit
-re
 numpy 
 matplotlib 
 seaborn 
