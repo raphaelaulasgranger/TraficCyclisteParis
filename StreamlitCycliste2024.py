@@ -29,6 +29,8 @@ from statsmodels.stats.diagnostic import acorr_ljungbox
 # from statsmodels.tsa.seasonal import STL
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
+from statsmodels.tsa.stattools import adfuller
+from tabulate import tabulate
 
 # @st.cache_data
 #def readDf():
@@ -592,8 +594,7 @@ if page == pages[4]:
 
     
     # Analyse de la stationnarité de la variable
-    from statsmodels.tsa.stattools import adfuller
-    from tabulate import tabulate
+
     st.header( "test de Dickey-Fuller augmenté")
     # Effectuer le test de Dickey-Fuller augmenté
     result = adfuller(dfr['Comptage'])
