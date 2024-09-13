@@ -243,7 +243,9 @@ if page == pages[1]:
                 "de température, considérant ces données comme les plus pertinentes pour une analyse sur "
                 "4 ans et expliquant les choix des Parisiennes et Parisiens de faire appel au vélo comme moyen de transport.  \n")
 
-    
+     st.markdown("17 valeurs sont manquantes. Il s'agit de 17 jours en 2023 durant lesquels aucune donnée n'est remontée."
+                 "Cette situation est signalée par la Mairie de Paris. Nous faisons le choix de remplacer ces données"
+                 "par la mediane des mesures à J+7 et J-7.")
     
     
 
@@ -769,13 +771,13 @@ if page == pages[5]:
     
     st.markdown("Nous avons testé plusieurs modèles." 
                 "Tout d'abord les modèles ARIMA, Auto_arima, SARIMA et enfin SARIMAX permettant d'intégrer"
-                " des données exogènes ( les données civiles + météorologiques." 
-                "Les modèles TBATS, Prphet ont été testé pour les modèles temporels."
+                " des données exogènes ( les données civiles + météorologiques). " 
+                "Ainsi, les modèles TBATS, Prophet ont été testé pour les modèles temporels. "
                 "Les modèles de regression ont été testé :"
-                "regression linéaire, Gradient Boosting et Random Forest."
-                "Le meilleur des modèles adaptés au traitement des séries temporelles est le modèle ***Sarimax***, "
+                "regression linéaire, Gradient Boosting et Random Forest. "
+                "Le meilleur des modèles adaptés au traitement de cette série temporelle est le modèle ***Sarimax***, "
                 "dont la détermination des paramètres nécessite nombre de tests et une approche itérative des plus chronophage.  \n" )
-    st.markdown("Toutefois, la comparaison des résultats obtenus à ceux des modèles « classiques » ne prenant "
+    st.markdown("Toutefois, la comparaison des résultats obtenus, proches de ceux obtenus par les modèles de regression ne prenant "
                 "pas en compte les temporalités nous amène à conclure que le trafic cycliste à Paris"
                 "repose essentiellement sur les paramètres exogènes (temps, jour de la semaine, période de l’année).  \n")
 
