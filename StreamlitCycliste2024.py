@@ -32,21 +32,7 @@ from sklearn.preprocessing import MinMaxScaler
 from statsmodels.tsa.stattools import adfuller
 from tabulate import tabulate
 
-# @st.cache_data
-#def readDf():
-#    data= [pd.read_csv("comptage-velo-donnees-compteurs.csv", sep=';'),
-#           pd.read_csv("Trafic_cycliste_period.csv"),
-#           pd.read_csv("Trafic_cycliste_period1.csv"),
-#           pd.read_csv("data_D_velo_meteo21-24.csv", parse_dates=[0], index_col=0)]
-# return data
-
-#df_read = readDf()
-
-# df = pd.read_csv( "/home/raphael.aulas/Documents/TECHNIQUE/python/Formation/Projet/streamlit/comptage-velo-donnees-compteurs 240702.csv", sep=';')
-# df2 = df_read[1]
-# df3 = df_read[2]
-# df4 = df_read[3
-# df=pd.read_csv("./data_D_velo_meteo21-24.csv", parse_dates=[0], index_col=0 )
+@st.cache
 df=pd.read_csv("./data_D_velo_meteo21-24.csv", parse_dates=[0], index_col=0)
 compteurs = pd.read_csv('./llistecompteur.csv')
 
@@ -402,12 +388,7 @@ if page == pages[2]:
     # Affichage du graphique dans Streamlit
     st.plotly_chart(fig)
 
-    
-   
-    
-   
-    
-   
+
 ############################################################################ CARTO
 # Nouvelle page Cartographie   
     
@@ -461,7 +442,7 @@ if page == pages[3]:
 
 if page == pages[4]:
     st.header("Machine learning et Etude temporelle")
-    st.subheader("Données principal")        
+    st.subheader("Données principales")        
     st.markdown("L’objectif de ce projet est de mettre en œuvre une modélisation du trafic cycliste dans Paris en "
                 "vue de prédire son intensité, en fonction des conditions météo dont la prédiction est "
                 "relativement fiable, de la période de l’année et des jours de la semaine, ce que nous "
