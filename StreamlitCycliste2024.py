@@ -371,7 +371,7 @@ if page == pages[2]:
                 mode='lines',
                 name=col,
                 line_color= colors[i])
-            ))
+            )
 
 
     
