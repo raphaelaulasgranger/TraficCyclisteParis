@@ -308,7 +308,9 @@ if page == pages[2]:
                 "enregistrant la plus faible moyenne de comptage horaire. La baisse durant le week-end pourrait "
                 "être liée à des habitudes de déplacement différentes, comme l’utilisation de la voiture, des "
                 "transports en commun ou la réduction des déplacements.")
-
+    st.markdown("Nous avons vérifié ce point en visualisant les données horaires et constaté deux pics quotidiens"
+                "en semaine les débuts et fins de journée.")
+    
 #AU FIL DES MOIS 
     st.subheader("La pratique du vélo au cours des mois ( prise en compte des jours travaillés seulement)")  
 
@@ -326,7 +328,7 @@ if page == pages[2]:
     
     # Personnaliser l'apparence
     fig.update_layout(
-        title='Moyenne mensuelle de Y',
+        title='Moyenne mensuelle des comptages',
         xaxis_title='Mois',
         yaxis_title='Trafic mensuel',
         xaxis_tickangle=-45
@@ -386,49 +388,12 @@ if page == pages[2]:
     # Affichage du graphique
     st.plotly_chart(fig)
     
-    # Affichage du dataframe
-    st.write("Données brutes :")
-    st.dataframe(df)
-
-
-
-# ####
-#     st.subheader("La température à PARIS")
-
-#     fig = px.line(df, x=df.index, y='Temperature', title='température')
-
-#     # Personnalisation du graphique
-#     fig.update_xaxes(title='Date')
-#     fig.update_yaxes(title='Température')
-    
-#     # Affichage du graphique dans Streamlit
-#     st.plotly_chart(fig)
-
-#     st.subheader("La neige à PARIS")
-
-#     fig = px.line(df, x=df.index, y='Neige', title='La neige')
-
-#     # Personnalisation du graphique
-#     fig.update_xaxes(title='Date')
-#     fig.update_yaxes(title='Neige')
-    
-#     # Affichage du graphique dans Streamlit
-#     st.plotly_chart(fig)
+    # # Affichage du dataframe
+    # st.write("Données brutes :")
+    # st.dataframe(df)
 
 
     
-    
-#     st.subheader("La pratique du vélo au fil des saisons… 2021 à 2024")
-
-#     fig = px.line(df, x=df.index, y='Comptage', title='Évolution du comptage des vélos au cours du temps')
-
-#     # Personnalisation du graphique
-#     fig.update_xaxes(title='Date')
-#     fig.update_yaxes(title='traffic cycliste')
-    
-#     # Affichage du graphique dans Streamlit
-#     st.plotly_chart(fig)
-
 
 ############################################################################ CARTO
 # Nouvelle page Cartographie   
@@ -724,34 +689,27 @@ if page == pages[4]:
                                    exog=test_data[col_exog])
 
     ##########################################"" SARIMAX  * affichage
-    # Affichage des résultats
-    # plt.figure(figsize=(20,12))
-    # plt.plot(train_data.index, train_data['Comptage'], label='datas train', color='royalblue')
-    # plt.plot(test_data.index, test_data['Comptage'], label='datas Test', color='darkturquoise')
-    # plt.plot(train_data.index, validations, label = 'pred sur entrainement ', color = 'orange')
-    # plt.plot(test_data.index, forecast, label='Prévisions', color = 'red')
-    # plt.legend()
-    # Title =  'Prévision SARIMAX ( pdq:'+str( p)+str(d)+str(q)+') (PDQ: ' +str( P)+str(D)+str(Q)+' s:'+str(s)+')' 
-    # plt.title  ( Title )
-    # # plt.savefig( Title + '.jpg' )
-    # plt.show();
-    fig, ax = plt.subplots(figsize=(20, 12))
+    #Création des cases à cocher avec la première cochée par défaut
+    show_train_data = st.checkbox("Afficher les données de vent", value=True)
+    show_validation = st.checkbox("Afficher les données de pluie", value=True)
+    
+
+    fig, ax = plt.subplots(figsize=(20, 20))
     
     ax.plot(train_data.index, train_data['Comptage'], label='datas train', color='royalblue')
     ax.plot(test_data.index, test_data['Comptage'], label='datas Test', color='darkturquoise')
-    ax.plot(train_data.index, validations, label='pred sur entrainement', color='orange')
-    ax.plot(test_data.index, forecast, label='Prévisions', color='red')
+    if show_train_data:
+        ax.plot(train_data.index, validations, label='pred sur entrainement', color='orange')
+    
+    if show_validation:
+        ax.plot(test_data.index, forecast, label='Prévisions', color='red')
     
     ax.legend()
     Title = f'Prévision SARIMAX (pdq:{p}{d}{q}) (PDQ: {P}{D}{Q} s:{s})'
     ax.set_title(Title)
     
     st.pyplot(fig)
-
-
-    # pickle.dump(model_Sfit , open(Title + '.pickle', 'wb'))
-    
-    
+   
     y_true = test_data['Comptage']
     y_pred = forecast
     #*************************************** Calcul des métriques
