@@ -342,8 +342,8 @@ if page == pages[2]:
 
     st.header('La météo au fil des saisons…')
     # Création des cases à cocher
-    show_vent = st.checkbox("Afficher les données de vent")
-    show_pluie = st.checkbox("Afficher les données de pluie")
+    show_vent = st.checkbox("Afficher les données de vent"  )
+    show_pluie = st.checkbox("Afficher les données de pluie", value=True)
     show_temp = st.checkbox("Afficher les données de température")
     show_neige = st.checkbox("Afficher les données de neige")   
     
@@ -362,30 +362,30 @@ if page == pages[2]:
         'neige' : show_neige
     }
     
-    # # Ajout des traces pour chaque variable sélectionnée
-    # for i, (col, show) in enumerate(data_to_show.items()):
-    #     if show:
-    #         fig.add_trace(go.Scatter(
-    #             x=df.index,
-    #             y=df[col],
-    #             mode='lines',
-    #             name=col,
-    #             line=dict(color=colors[i])
-    #         ))
+    # Ajout des traces pour chaque variable sélectionnée
+    for i, (col, show) in enumerate(data_to_show.items()):
+        if show:
+            fig.add_trace(go.Scatter(
+                x=df.index,
+                y=df[col],
+                mode='lines',
+                name=col,
+                line_color= colors[i])
+            ))
 
 
     
-    if show_vent:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent', line_color=colors[1] ))
+    # if show_vent:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent', line_color=colors[1] ))
           
-    if show_pluie:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie' , line_color=colors[3]))
+    # if show_pluie:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie' , line_color=colors[3]))
     
-    if show_temp:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température' , line_color=colors[2]))
+    # if show_temp:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température' , line_color=colors[2]))
     
-    if show_neige:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Neige' , line_color=colors[0]))
+    # if show_neige:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Neige' , line_color=colors[0]))
        
     # st.subheader("La pluie")
     # Mise à jour du layout
