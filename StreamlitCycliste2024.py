@@ -356,10 +356,10 @@ if page == pages[2]:
     
     # Dictionnaire des données à afficher
     data_to_show = {
-        'vent': show_vent,
-        'pluie': show_pluie,
-        'temperature': show_temp,
-        'neige' : show_neige
+        'Vent': show_vent,
+        'Pluie': show_pluie,
+        'Temperature': show_temp,
+        'Neige' : show_neige
     }
     
     # Ajout des traces pour chaque variable sélectionnée
