@@ -5,10 +5,8 @@ seaborn
 pandas 
 folium
 plotly
-streamlit
 streamlit_folium
 statsmodels
-pmdarima 
 scikit-learn 
 statsmodels
 tabulate
