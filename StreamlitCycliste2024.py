@@ -384,7 +384,7 @@ if page == pages[2]:
     if show_temp:
         fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température') )
     
-    if show_temp:
+    if show_neige:
         fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Neige') )
        
     # st.subheader("La pluie")
