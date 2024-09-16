@@ -14,20 +14,20 @@ import seaborn as sns
 import pandas as pd
 import folium
 import plotly.graph_objects as go
-from streamlit.components.v1 import html
-import plotly.express as px
+#from streamlit.components.v1 import html
+#import plotly.express as px
 # from PIL import Image
 from streamlit_folium import folium_static
 from statsmodels.tsa.statespace.sarimax import SARIMAXResults
 
-import statsmodels.api as sm
+#import statsmodels.api as sm
 # import matplotlib.pyplot as plt
 # import pmdarima as pm
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from statsmodels.stats.diagnostic import acorr_ljungbox
 # from statsmodels.tsa.seasonal import seasonal_decompose
 # from statsmodels.tsa.seasonal import STL
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from statsmodels.tsa.stattools import adfuller
 from tabulate import tabulate
@@ -622,7 +622,7 @@ if page == pages[4]:
     st.subheader("modele SARIMAX (p, d, q) = (1, 0, 1) (P, D, Q, s) = (0, 1, 1, 7)  ")
 
     # Définition du modèle SARIMAX
-    from statsmodels.tsa.statespace.sarimax import SARIMAX
+#   from statsmodels.tsa.statespace.sarimax import SARIMAX
     
     (p, d, q) = (1, 0, 1)        # pour la partie non saisonnière
     (P, D, Q, s) = (0, 1, 1, 7)    # pour la partie saisonnière (fréquence hebdomadaire)
