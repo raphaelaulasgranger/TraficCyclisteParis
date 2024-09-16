@@ -376,16 +376,16 @@ if page == pages[2]:
 
     
     if show_vent:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent') )
+        fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent'), color=colors[1] )
           
     if show_pluie:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie') )
+        fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie') , color=colors[3])
     
     if show_temp:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température') )
+        fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température') , color=colors[2])
     
     if show_neige:
-        fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Neige') )
+        fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Neige') , color=colors[0])
        
     # st.subheader("La pluie")
     # Mise à jour du layout
