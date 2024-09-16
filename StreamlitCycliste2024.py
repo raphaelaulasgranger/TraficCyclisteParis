@@ -32,11 +32,10 @@ from sklearn.preprocessing import MinMaxScaler
 from statsmodels.tsa.stattools import adfuller
 from tabulate import tabulate
 
-<<<<<<< HEAD
 # @st.cache(persist=True)
-=======
+
 #@st.cache
->>>>>>> origin/master
+
 df=pd.read_csv("./data_D_velo_meteo21-24.csv", parse_dates=[0], index_col=0)
 compteurs = pd.read_csv('./llistecompteur.csv')
 
