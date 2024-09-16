@@ -376,7 +376,7 @@ if page == pages[2]:
 
     
     if show_vent:
-        fig.add_trace(go.Scatter(x=df.index, y='Vent', mode='lines', name='Vent') )
+        fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent') )
           
     if show_pluie:
         fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie') )
