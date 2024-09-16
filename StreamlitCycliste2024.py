@@ -366,7 +366,7 @@ if page == pages[2]:
     for i, (col, show) in enumerate(data_to_show.items()):
         if show:
             fig.add_trace(go.Scatter(
-                x=df['date'],
+                x=df.index,
                 y=df[col],
                 mode='lines',
                 name=col,
