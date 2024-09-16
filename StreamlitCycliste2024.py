@@ -690,8 +690,8 @@ if page == pages[4]:
 
     ##########################################"" SARIMAX  * affichage
     #Création des cases à cocher avec la première cochée par défaut
-    show_train_data = st.checkbox("Afficher les données de vent", value=True)
-    show_validation = st.checkbox("Afficher les données de pluie", value=True)
+    show_train_data = st.checkbox("Afficher les prédictions sur les données d'entrainement", value=True)
+    show_validation = st.checkbox("Afficher les prédictions", value=True)
     
 
     fig, ax = plt.subplots(figsize=(20, 20))
