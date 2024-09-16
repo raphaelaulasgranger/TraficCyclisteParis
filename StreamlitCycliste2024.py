@@ -744,7 +744,7 @@ if page == pages[4]:
 # Nouvelle page Analyse et conclusion   
        
 if page == pages[5]:
-    st.header("Analyse des resultats")
+    st.header("Analyse des résultats")
     st.subheader("Comparaisons des différents modèles prédictifs") 
 
 
@@ -787,8 +787,12 @@ if page == pages[5]:
     st.markdown("**Usages possibles :**")
     st.markdown("""
                 - Mieux programmer les travaux, 
-                - Mieux anticiper ainsi le partage de la voirie,
-                - Etudier l'accidentologie, afin de mettre des solutions en place pour le reduire.""")
+                - Mieux anticiper le partage de la voirie,""")
+    
+    st.markdown("**Evolutions :**")
+    st.markdown(""" 
+                - Intégrer les données d'accidentologie, étudier la corrélation géospatiale et statistique
+                afin de mettre des solutions en place pour le reduire.""")
 
     
 
