@@ -379,7 +379,8 @@ if page == pages[2]:
         title="Données météorologiques",
         xaxis_title="Date",
         yaxis_title="Valeur",
-        legend_title="Légende"
+        legend_title="Légende",
+        height=600  # Définit la hauteur du graphique en pixels
     )
     
     # Affichage du graphique
