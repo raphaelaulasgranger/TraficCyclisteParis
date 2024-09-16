@@ -1,7 +1,0 @@
-[server]
-# Spécifiez le chemin vers votre script principal
-scriptPath = "StreamlitCycliste2024.py"
-
-[git]
-# Spécifiez la branche à utiliser
-branch = "version2"
