@@ -32,7 +32,7 @@ from sklearn.preprocessing import MinMaxScaler
 from statsmodels.tsa.stattools import adfuller
 from tabulate import tabulate
 
-@st.cache
+@st.cache(persist=True)
 df=pd.read_csv("./data_D_velo_meteo21-24.csv", parse_dates=[0], index_col=0)
 compteurs = pd.read_csv('./llistecompteur.csv')
 
@@ -182,7 +182,7 @@ if page == pages[1]:
                 "Ceci constitue ainsi une base de comptage de 2021 à 2024.")
     st.subheader("Ajout de variables :")
     st.markdown("Nous avons crée des variable Jours, Mois, Années, ainsi que la longitude et la latitude à partir des données disponible dans le DataFrame.")
-    st.write ( df.columns)
+    # st.write ( df.columns)
     st.dataframe(df[['Comptage','annee', 'mois', 'joursem', 'weekend', 'vacances', 'feries']].head(10))
     checkbox1 = st.checkbox("Afficher les NA") 
     if checkbox1: 
@@ -230,7 +230,7 @@ if page == pages[1]:
                 "4 ans et expliquant les choix des Parisiennes et Parisiens de faire appel au vélo comme moyen de transport.  \n")
 
     st.markdown("17 valeurs sont manquantes. Il s'agit de 17 jours en 2023 durant lesquels aucune donnée n'est remontée."
-                 "Cette situation est signalée par la Mairie de Paris. Nous faisons le choix de remplacer ces données"
+                 "Cette situation est signalée par la Mairie de Paris. \n Nous faisons le choix de remplacer ces données"
                  "par la mediane des mesures à J+7 et J-7.")
     
     
@@ -341,17 +341,80 @@ if page == pages[2]:
 # ANALYSE METEO
 
     st.header('La météo au fil des saisons…')
-    st.subheader("La pluie")
-
-    fig = px.line(df, x=df.index, y='Pluie', title='La pluie à PARIS')
-
-    # Personnalisation du graphique
-    fig.update_xaxes(title='Date')
-    fig.update_yaxes(title='Pluie')
+    # Création des cases à cocher
+    show_vent = st.checkbox("Afficher les données de vent")
+    show_pluie = st.checkbox("Afficher les données de pluie")
+    show_temp = st.checkbox("Afficher les données de température")
+    show_neige = st.checkbox("Afficher les données de température")   
     
-    # Affichage du graphique dans Streamlit
-    st.plotly_chart(fig
-                   )
+    # Création du graphique
+    fig = go.Figure()
+
+    
+    # Palette de couleurs
+    colors = ['red', 'blue', 'green', 'orange']
+    
+    # Dictionnaire des données à afficher
+    data_to_show = {
+        'vent': show_vent,
+        'pluie': show_pluie,
+        'temperature': show_temp,
+        'neige' : show_neige
+    }
+    
+    # Ajout des traces pour chaque variable sélectionnée
+    for i, (col, show) in enumerate(data_to_show.items()):
+        if show:
+            fig.add_trace(go.Scatter(
+                x=df['date'],
+                y=df[col],
+                mode='lines',
+                name=col,
+                line=dict(color=colors[i])
+            ))
+
+
+    
+    # if show_vent:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent'))
+          
+    # if show_pluie:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie'))
+    
+    # if show_temp:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température'))
+    
+    # if show_temp:
+    #     fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Température'))
+       
+    # st.subheader("La pluie")
+    # Mise à jour du layout
+    fig.update_layout(
+        title="Données météorologiques",
+        xaxis_title="Date",
+        yaxis_title="Valeur",
+        legend_title="Légende"
+    )
+    
+    # Affichage du graphique
+    st.plotly_chart(fig)
+    
+    # Affichage du dataframe
+    st.write("Données brutes :")
+    st.dataframe(df)
+
+    # # fig = px.line(df, x=df.index, y='Pluie', title='La pluie à PARIS')
+
+    # # Personnalisation du graphique
+    # fig.update_xaxes(title='Date')
+    # fig.update_yaxes(title='les données météo')
+    
+    # # Affichage du graphique dans Streamlit
+    # st.plotly_chart(fig
+    #                )
+
+
+####
     st.subheader("La température à PARIS")
 
     fig = px.line(df, x=df.index, y='Temperature', title='température')
