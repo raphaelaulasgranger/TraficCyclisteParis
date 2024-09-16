@@ -362,30 +362,30 @@ if page == pages[2]:
         'neige' : show_neige
     }
     
-    # Ajout des traces pour chaque variable sélectionnée
-    for i, (col, show) in enumerate(data_to_show.items()):
-        if show:
-            fig.add_trace(go.Scatter(
-                x=df.index,
-                y=df[col],
-                mode='lines',
-                name=col,
-                line=dict(color=colors[i])
-            ))
+    # # Ajout des traces pour chaque variable sélectionnée
+    # for i, (col, show) in enumerate(data_to_show.items()):
+    #     if show:
+    #         fig.add_trace(go.Scatter(
+    #             x=df.index,
+    #             y=df[col],
+    #             mode='lines',
+    #             name=col,
+    #             line=dict(color=colors[i])
+    #         ))
 
 
     
-    # if show_vent:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent'))
+    if show_vent:
+        fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent'), color=colors[0])
           
-    # if show_pluie:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie'))
+    if show_pluie:
+        fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie'), color=colors[0])
     
-    # if show_temp:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température'))
+    if show_temp:
+        fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température'), color=colors[0])
     
-    # if show_temp:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Température'))
+    if show_temp:
+        fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Température'), color=colors[0])
        
     # st.subheader("La pluie")
     # Mise à jour du layout
