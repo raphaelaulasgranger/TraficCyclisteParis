@@ -352,7 +352,7 @@ if page == pages[2]:
 
     
     # Palette de couleurs
-    colors = ['red', 'blue', 'green', 'orange']
+    colors = ['orange' ,'blue', 'green', 'red']
     
     # Dictionnaire des données à afficher
     data_to_show = {
@@ -374,20 +374,6 @@ if page == pages[2]:
             )
 
 
-    
-    # if show_vent:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Vent'], mode='lines', name='Vent', line_color=colors[1] ))
-          
-    # if show_pluie:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Pluie'], mode='lines', name='Pluie' , line_color=colors[3]))
-    
-    # if show_temp:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Temperature'], mode='lines', name='Température' , line_color=colors[2]))
-    
-    # if show_neige:
-    #     fig.add_trace(go.Scatter(x=df.index, y=df['Neige'], mode='lines', name='Neige' , line_color=colors[0]))
-       
-    # st.subheader("La pluie")
     # Mise à jour du layout
     fig.update_layout(
         title="Données météorologiques",
@@ -403,53 +389,44 @@ if page == pages[2]:
     st.write("Données brutes :")
     st.dataframe(df)
 
-    # # fig = px.line(df, x=df.index, y='Pluie', title='La pluie à PARIS')
 
-    # # Personnalisation du graphique
-    # fig.update_xaxes(title='Date')
-    # fig.update_yaxes(title='les données météo')
+
+# ####
+#     st.subheader("La température à PARIS")
+
+#     fig = px.line(df, x=df.index, y='Temperature', title='température')
+
+#     # Personnalisation du graphique
+#     fig.update_xaxes(title='Date')
+#     fig.update_yaxes(title='Température')
     
-    # # Affichage du graphique dans Streamlit
-    # st.plotly_chart(fig
-    #                )
+#     # Affichage du graphique dans Streamlit
+#     st.plotly_chart(fig)
 
+#     st.subheader("La neige à PARIS")
 
-####
-    st.subheader("La température à PARIS")
+#     fig = px.line(df, x=df.index, y='Neige', title='La neige')
 
-    fig = px.line(df, x=df.index, y='Temperature', title='température')
-
-    # Personnalisation du graphique
-    fig.update_xaxes(title='Date')
-    fig.update_yaxes(title='Température')
+#     # Personnalisation du graphique
+#     fig.update_xaxes(title='Date')
+#     fig.update_yaxes(title='Neige')
     
-    # Affichage du graphique dans Streamlit
-    st.plotly_chart(fig)
-
-    st.subheader("La neige à PARIS")
-
-    fig = px.line(df, x=df.index, y='Neige', title='La neige')
-
-    # Personnalisation du graphique
-    fig.update_xaxes(title='Date')
-    fig.update_yaxes(title='Neige')
-    
-    # Affichage du graphique dans Streamlit
-    st.plotly_chart(fig)
+#     # Affichage du graphique dans Streamlit
+#     st.plotly_chart(fig)
 
 
     
     
-    st.subheader("La pratique du vélo au fil des saisons… 2021 à 2024")
+#     st.subheader("La pratique du vélo au fil des saisons… 2021 à 2024")
 
-    fig = px.line(df, x=df.index, y='Comptage', title='Évolution du comptage des vélos au cours du temps')
+#     fig = px.line(df, x=df.index, y='Comptage', title='Évolution du comptage des vélos au cours du temps')
 
-    # Personnalisation du graphique
-    fig.update_xaxes(title='Date')
-    fig.update_yaxes(title='traffic cycliste')
+#     # Personnalisation du graphique
+#     fig.update_xaxes(title='Date')
+#     fig.update_yaxes(title='traffic cycliste')
     
-    # Affichage du graphique dans Streamlit
-    st.plotly_chart(fig)
+#     # Affichage du graphique dans Streamlit
+#     st.plotly_chart(fig)
 
 
 ############################################################################ CARTO
