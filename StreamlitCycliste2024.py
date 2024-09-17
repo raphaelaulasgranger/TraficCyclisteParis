@@ -99,7 +99,7 @@ st.sidebar.markdown(
 
 st.sidebar.markdown(  """
  <h3 style="text-align: center;">
-     Promotion BootCamp Data Analyst - Juin 2024
+     Promotion Data Analyst - septembre 2024
  </h3>
  """,
  unsafe_allow_html=True
@@ -113,7 +113,7 @@ if page == pages[0]:
     st.markdown(
     """
     <h3 style="text-align: center;">
-        Projet réalisé dans le cadre de la formation Data Analyst de DataScientest.com Promotion Bootcamp Juin 2024
+        Projet réalisé dans le cadre de la formation Data Analyst de DataScientest.com 2024
     </h3>
     """,
     unsafe_allow_html=True
