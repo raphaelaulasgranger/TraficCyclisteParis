@@ -4,7 +4,7 @@
 Éditeur de Spyder
 Formation Data scientest JUIN24 
 DATA ANALYST 
-
+Raphael Aulas-Granger
 """
 import re
 import streamlit as st
